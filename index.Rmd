@@ -10,27 +10,53 @@ output:
 library(flexdashboard)
 ```
 
-Column {data-width=650}
------------------------------------------------------------------------
-
-### Chart A
-
 ```{r}
-
+library("tidyverse")
 ```
 
-Column {data-width=350}
------------------------------------------------------------------------
 
-### Chart B
 
-```{r}
-
+```{r include=FALSE}
+df <- read.csv("customer-churn.csv")
+df
 ```
 
-### Chart C
+```{r}
+library(plotly)
+```
+
 
 ```{r}
+library(readr)
+```
 
+```{r include=FALSE}
+glimpse(df)
+```
+
+Column
+-----------------------------------------------------------------------
+### ABC
+```{r}
+# Box Plot
+ggplot(data = df, aes(x = Churn, y = tenure, fill = Churn)) +
+  geom_boxplot()
+```
+
+Column
+-----------------------------------------------------------------------
+### Chrat B
+```{r}
+# Bar Chart
+ggplot(data = df, aes(x = InternetService, fill = MonthlyCharges)) +
+  geom_bar() +
+  theme_classic() +
+  labs(
+    title = "Perbandingan Amount Charge Montly by Tipe Service",
+    caption = "Sumber Data: Marketing"
+  ) +
+  xlab("InternetService") +
+  ylab("MonthlyCharges") +
+  theme(legend.position = "none")
 ```
 
