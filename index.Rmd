@@ -2,7 +2,7 @@
 title: "Untitled"
 output: 
   flexdashboard::flex_dashboard:
-    orientation: columns
+    orientation: Coloumns
     vertical_layout: fill
 ---
 
@@ -60,12 +60,11 @@ ggplot(data = df, aes(x = InternetService, fill = MonthlyCharges)) +
   theme(legend.position = "none")
 ```
 
+
 Column
 -----------------------------------------------------------------------
 ### CD
 ```{r}
-# Box Plot
-ggplot(data = df, aes(x = MonthlyCharges, y = Churn, fill = MonthlyCharges)) +
-  geom_boxplot()
+ggplot(data = df, aes(x = Contract, fill = Contract)) +
+  geom_bar()
 ```
-
